@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int i,a,b,nextterm,n;
+    
+    a=0;
+    b=1;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printf("%d %d ",a,b);
+    
+    for(i=2;i<n;i++){
+        
+        nextterm=a+b;
+        printf("%d ",nextterm);
+        
+        a=b;
+        b=nextterm;
+    }
+
+    return 0;
+}
