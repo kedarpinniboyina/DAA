@@ -19,13 +19,9 @@ int find(int x)
 }
 
 // Union
-void unionSet(int x, int y)
+void unionSet(int i, int j)
 {
-    int rootX = find(x);
-    int rootY = find(y);
-
-    if(rootX != rootY)
-        parent[rootX] = rootY;
+    parent[i] = j;
 }
 
 int main()
