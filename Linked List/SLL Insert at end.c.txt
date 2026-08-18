@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+int main()
+{
+    struct Node *head = NULL;
+    struct Node *newNode;
+    struct Node *temp;
+
+    int n, i;
+
+    // Read number of nodes
+    printf("Enter the No of Nodes: ");
+    scanf("%d", &n);
+
+    // Create nodes
+    for(i = 1; i <= n; i++)
+    {
+        // Allocate memory for new node
+        newNode = (struct Node *)malloc(sizeof(struct Node));
+
+        // Read data
+        printf("Enter the Data: ");
+        scanf("%d", &newNode->data);
+
+        // New node initially points to NULL
+        newNode->next = NULL;
+
+        // If list is empty
+        if(head == NULL)
+        {
+            head = newNode;
+        }
+        else
+        {
+            // Start from first node
+            temp = head;
+
+            // Move to last node
+            while(temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+
+            // Connect last node to new node
+            temp->next = newNode;
+        }
+    }
+
+    // Display linked list
+    printf("Linked List: ");
+
+    temp = head;
+
+    while(temp != NULL)
+    {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+
+    printf("NULL");
+
+    return 0;
+}
